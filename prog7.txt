@@ -1,0 +1,14 @@
+from transformers import pipeline 
+
+summarizer = pipeline("summarization") 
+
+text = """ Artificial Intelligence (AI) is transforming education by introducing adaptive learning 
+techniques, automating administrative processes, and enabling intelligent tutoring systems. 
+AI-driven learning platforms analyze vast amounts of student data, including learning habits, 
+strengths, and weaknesses, to personalize educational experiences.  This customization 
+allows students to progress at their own pace, ensuring that they receive content suited to 
+their proficiency level """
+
+summary = summarizer(long_text, max_length=100, min_length=50, do_sample=False) 
+
+print("Summarized Text:\n", summary[0]['summary_text'])
